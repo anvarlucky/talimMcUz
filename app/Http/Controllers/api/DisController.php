@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Dis;
+use App\Models\Reg;
 
 class DisController extends Controller
 {
@@ -24,7 +25,8 @@ class DisController extends Controller
 
     public function index()
     {
-        $districts = Dis::select('*')->get();
+        $districts = Dis::select('*','name->uz as name_uz')->get();
+        return $districts->region_id;
         return response()->json([
             'success' => true,
             'lang' => app()->getLocale(),
@@ -68,40 +70,25 @@ class DisController extends Controller
      */
     public function show($id)
     {
-        //
+        $district = Dis::select('id','name', 'region_id')->where('id', $id)->get();
+        return $district;
+        return response()->json([
+            'success' => true,
+            'lang' => app()->getLocale(),
+            'data' => [
+                $district,
+                ],
+            'status' => 200
+        ])->withHeaders($this->headers);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function getWithRegion($id)
     {
-        //
+        return Dis::select('r.name as region', 'districts_for_all.name as district')
+            ->where('districts_for_all.id', $id)
+            ->leftJoin('regions_for_all as r', 'r.id', 'region_id')
+            ->firstOrFail();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

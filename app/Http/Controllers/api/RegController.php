@@ -31,7 +31,7 @@ class RegController extends Controller
 
     public function index()
     {
-        $regions = Reg::select('*')->get();
+        $regions = Reg::select('*','name->uz as name_uz')->get();
         return response()->json([
             'success' => true,
             'lang' => app()->getLocale(),
@@ -86,7 +86,13 @@ class RegController extends Controller
      */
     public function show($id)
     {
-        //
+        $region = Reg::select('*')->where('id', $id)->get();
+        return response()->json([
+            'success' => true,
+            'lang' => app()->getLocale(),
+            'data' => $region,
+            'status' => 200
+        ])->withHeaders($this->headers);
     }
 
     /**

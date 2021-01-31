@@ -23,3 +23,4 @@ Route::get('regions/{regionId}','api\RegionController@district');
 Route::apiResource('reg', 'api\RegController');
 Route::get('regs/{reg_id}','api\RegController@dis');
 Route::apiResource('dis', 'api\DisController');
+Route::get('dis-region/{id}', 'api\DisController@getWithRegion');
