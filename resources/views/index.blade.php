@@ -2,7 +2,7 @@
 @section('content')
     <div class="col-md-12">
         <div class="col-md-12">
-            <h3 style="text-align: center">Қисқа муддатли ўқув курсларида иштирок этаётган тингловчилар рўйхати</h3>
+            <h3 style="text-align: center">Қисқа муддатли ўқув курсларида иштирок этаётган тингловчилар рўйхати</h3>|
             {{--<a href="/">Chiqish</a>--}}
             <form action="{{route('validatsiya.search')}}" method="post">
                 @csrf

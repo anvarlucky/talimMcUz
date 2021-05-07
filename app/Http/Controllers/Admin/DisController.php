@@ -69,6 +69,7 @@ class DisController extends Controller
     {
         $client = new Client(['base_uri' => 'http://certificate.loc/']);
         $request = $request->except('_token');
+
         $response = $client->request('POST','api/dis',['form_params' => $request, 'headers' =>$this->headers]);
         if($response ==true)
         {

@@ -84,6 +84,8 @@
 
             </div>
             <br/>
+{{--
             {{$students->render()}}
+--}}
         </div>
 @endsection

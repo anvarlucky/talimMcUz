@@ -26,7 +26,6 @@ class DisController extends Controller
     public function index()
     {
         $districts = Dis::select('*','name->uz as name_uz')->get();
-        return $districts->region_id;
         return response()->json([
             'success' => true,
             'lang' => app()->getLocale(),
@@ -71,7 +70,6 @@ class DisController extends Controller
     public function show($id)
     {
         $district = Dis::select('id','name', 'region_id')->where('id', $id)->get();
-        return $district;
         return response()->json([
             'success' => true,
             'lang' => app()->getLocale(),
@@ -84,11 +82,12 @@ class DisController extends Controller
 
     public function getWithRegion($id)
     {
-        return Dis::select('r.name as region', 'districts_for_all.name as district')
+        return Dis::select('r.name as region', 'districts_for_all.name as district','districts_for_all.id as district_id')
             ->where('districts_for_all.id', $id)
             ->leftJoin('regions_for_all as r', 'r.id', 'region_id')
             ->firstOrFail();
     }
+
 
 
 }

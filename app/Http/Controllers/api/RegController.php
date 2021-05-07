@@ -128,4 +128,15 @@ class RegController extends Controller
     {
         //
     }
+
+    public function regName($id)
+    {
+        $region = Reg::select('id','name')->where('id', $id)->get();
+        return response()->json([
+            'success' => true,
+            'lang' => app()->getLocale(),
+            'data' => $region,
+            'status' => 200
+        ])->withHeaders($this->headers);
+    }
 }
