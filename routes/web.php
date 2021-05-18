@@ -15,6 +15,7 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::group(['middleware' => ['web','auth']], function () {
     Route::group(['namespace' => 'client'],function(){
+        Route::resource('ticket','TicketController');
         Route::get('/', 'StudentController@index');
         Route::resource('students', 'StudentController');
         Route::get('studentsCertified', 'StudentController@indexCertified')->name('certified');

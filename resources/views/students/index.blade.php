@@ -22,6 +22,9 @@
                         <li class="col px-0 mx-3 table-top-panel-items">
                             <a href="{{route('certified')}}" class="text-decoration-none table-top-panel-items-link">Тамомлаганлар</a>
                         </li>
+                        <li class="col px-0 mx-3 table-top-panel-items">
+                            <a href="{{route('ticket.index')}}" class="text-decoration-none table-top-panel-items-link">Ticket</a>
+                        </li>
                     </ul>
 
 
