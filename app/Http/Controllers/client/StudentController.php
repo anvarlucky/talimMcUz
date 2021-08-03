@@ -147,7 +147,7 @@ class StudentController extends Controller
     public function order($id)
     {
         $student = Student::select('id','order_photo')->where('id', $id)->first();
-        return response()->download(public_path('/storage/validation/order/'.$student->order_photo));
+        return response()->download(public_path('storage/validation/order/'.$student->order_photo));
     }
 
     public function show($id)

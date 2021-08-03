@@ -28,7 +28,6 @@
                 <th scope="col" style="text-align: center">Таълим муассаси номи</th>
                 {{--<th>Расм</th>--}}
                 <th scope="col" style="text-align: center">Қабул қилинганлиги бўйруқ рақами ва санаси</th>
-
                 <th scope="col" style="text-align: center">Тамомланганлиги тўғрисидаги бўйруқ ва санаси</th>
                 <th scope="col" style="text-align: center">Статус</th>
                 <th scope="col" style="text-align: center">Ўзгартириш</th>
