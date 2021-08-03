@@ -66,7 +66,7 @@
                             @if($ticket->status==1)
                                 <td><span class="btn btn-danger">Ochiq</span></td>
                             @elseif($ticket->status==2)
-                                <td><span class="btn btn-primary">Javob berildi</span></td>
+                                <td><span class="btn btn-primary">Ish jarayonida</span></td>
                             @else
                                 <td><span class="btn btn-success">Yopiq</span></td>
                             @endif

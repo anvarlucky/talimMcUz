@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="26a80e88-5e63-46cd-b4b9-fca7039659c9" name="NewTalim" url="http://172.33.1.107">
+        <fileTransfer host="172.33.1.107" port="22" rootFolder="/home/vhosts/talim.mc.uz/httpdocs" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

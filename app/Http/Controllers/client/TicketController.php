@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\Auth;
 class TicketController extends BaseControllerForClient
 {
     public function index(){
-        $tickets = $this->get('http://support.mc.uz/api/ticketAll');
+        /*$url = $request->url();
+        $replace = str_replace($url,'http://certificate.loc',$url);*/
+        $tickets = $this->get('http://support.loc/api/ticketAll');
         return view('tickets.index',[
             'tickets' => $tickets->data,
         ]);
@@ -34,5 +36,7 @@ class TicketController extends BaseControllerForClient
     }
 
     public function show($id){
+        $ticket = $this->get('http://support.loc/api/ticks1/'.$id);
+        return $ticket;
     }
 }
