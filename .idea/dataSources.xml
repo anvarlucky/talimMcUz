@@ -4,7 +4,7 @@
     <data-source source="LOCAL" name="talim" uuid="fb7e67d5-ec21-41df-b163-cac8cf1dc1eb">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://192.168.222.18:3306/talim</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/talim</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />
