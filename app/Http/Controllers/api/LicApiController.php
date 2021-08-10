@@ -39,10 +39,10 @@ class LicApiController extends Controller
         $licence->license_number = $request->license_number;
         $licence->license_date = $request->license_date;
         $licence->license_term = $request->license_term;
-        $licence->license_term = $request->type_of_activity;
-        $licence->license_term = $request->license_edit_asosDate;
-        $licence->license_term = $request->license_end_asosDate;
-
+        $licence->type_of_activity = $request->type_of_activity;
+        $licence->license_edit_asosDate = $request->license_edit_asosDate;
+        $licence->license_end_asosDate = $request->license_end_asosDate;
+        $licence->save();
         return $licence;
 
 
