@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LicenceTestRequest;
 use App\Models\Licence;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Validator;
 
@@ -51,6 +52,37 @@ class LicApiController extends Controller
             'success' => true,
             'lang' => app()->getLocale(),
             'data' => $licence,
+            'status'=> 201
+        ])->withHeaders($this->headers);
+    }
+
+    public function licence381(Request $request){
+        $project = new Project();
+        $project->send_id = $request->send_id;
+        $project->send_date = $request->send_date;
+        $project->license_name = $request->license_name;
+        $project->address = $request->address;
+        $project->phone_number = $request->phone_number;
+        $project->account_number = $request->account_number;
+        $project->e_adress = $request->e_adress;
+        $project->tin = $request->tin;
+        $project->pinfl = $request->pinfl;
+        $project->fio_director = $request->fio_director;
+        $project->license_number = $request->license_number;
+        $project->license_date = $request->license_date;
+        $project->complexity_category = $request->complexity_category;
+        $project->type_of_activity = $request->type_of_activity;
+        $project->license_edit_asosDate = $request->license_edit_asosDate;
+        $project->license_end_asosDate = $request->license_end_asosDate;
+        $project->save();
+        return $project;
+
+
+
+        return response()->json([
+            'success' => true,
+            'lang' => app()->getLocale(),
+            'data' => $project,
             'status'=> 201
         ])->withHeaders($this->headers);
     }

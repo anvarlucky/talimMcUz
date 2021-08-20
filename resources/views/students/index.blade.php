@@ -58,7 +58,7 @@
 
                         @foreach($students as $key => $student)
                         <tr>
-                            <th class="lightblue-color w-2 align-middle" scope="row">{{++$key}}</th>
+                            <th class="lightblue-color w-2 align-middle" scope="row">{{ ($students ->currentpage()-1) * $students ->perpage() + $loop->index + 1 }}</th>
                             <td class="darkblue-color text-center text-nowrap align-middle"><a href="{{route('student',$student->id)}}">{{$student->s_name}} {{$student->f_name}} {{$student->l_name}}</a></td>
                             <td class="darkblue-color text-center text-nowrap align-middle">{{$student->college->district->region->name}}</td>
                             <td class="darkblue-color text-center text-nowrap align-middle">{{$student->address}}</td>
