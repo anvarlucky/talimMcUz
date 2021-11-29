@@ -14,7 +14,7 @@ class CreateStudents123Table extends Migration
     public function up()
     {
         Schema::table('students', function (Blueprint $table) {
-            $table->bigInteger('pnfl');
+            $table->bigInteger('pnfl')->nullable()->default(null);
         });
     }
 

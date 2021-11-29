@@ -69,6 +69,10 @@
                         </div>
                         <div class="col-md-5 ml-4">
                             <div class="form-group">
+                                <label for="Surname">ЖШШИР</label>
+                                {{Form::text('pnfl', $student->pnfl??null, ['class' => 'form-control', 'id' => 'pnfl'])}}
+                            </div>
+                            <div class="form-group">
                                 <label for="number-one">Қабул қилингалиги тўғрисидаги бўйруқ рақами:</label>
                                 {{Form::text('entering_number',$student->entering_number??null, ['class' => 'form-control', 'id' => 'number-one'])}}
                             </div>
