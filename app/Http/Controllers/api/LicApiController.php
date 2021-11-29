@@ -25,7 +25,7 @@ class LicApiController extends Controller
             'Content-Type' => 'application/json'
         ];
     }
-    public function licence(LicenceTestRequest $request){
+    public function licence(Request $request){
         $licence = new Licence();
         $licence->send_id = $request->send_id;
         $licence->send_date = $request->send_date;

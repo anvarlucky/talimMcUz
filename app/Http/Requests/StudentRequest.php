@@ -28,8 +28,8 @@ class StudentRequest extends FormRequest
             's_name' => 'required|min:3|max:100',
             'l_name' => 'required|min:3|max:100',
             'entering_number' => 'required|sometimes|min:3|max:20',
-            'photo' => 'mimes:jpeg,png,jpg|max:5120',
-            'order_photo' => 'mimes:jpeg,png,jpg|max:5120',
+            'photo' => 'max:5120',
+            'order_photo' => 'max:5120',
         ];
     }
 }

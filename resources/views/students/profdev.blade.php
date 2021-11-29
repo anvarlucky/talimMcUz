@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid p-5">
         <div class="d-flex justify-content-between align-items-center">
-            <p class="title-list">Қисқа муддатли ўқув курсларида иштирок этаётган тингловчилар рўйхати</p>
+            <p class="title-list">Лойиҳалаш ва қурилиш соҳасидаги мутахассислар малакасини ошириш курслари тингловчилар рўйхати</p>
             <form action="{{route('students.search')}}" method="post" class="input-group  search-input col-4 mb-3">
                 @csrf
                 <input type="text" name="search" class="form-control focus-none border-right-0" placeholder="Қидирув"
@@ -16,13 +16,13 @@
         <div class="col-12 px-0 table-box">
             <div class="table-top-panel d-flex align-items-center justify-content-between px-2 py-3">
                 <ul class="d-flex">
-                    <li class="col px-0 mx-3 table-top-panel-items {{--active--}} {{route('students.index') ? 'active' : ''}}">
-                        <a href="{{route('students.index')}}" class="text-decoration-none table-top-panel-items-link">Ўқиётганлар</a>
+                    <li class="col px-0 mx-3 table-top-panel-items {{--active--}} {{route('profdev') ? 'active' : ''}}">
+                        <a href="{{route('profdev')}}" class="text-decoration-none table-top-panel-items-link">Ўқиётганлар</a>
                     </li>
                     <li class="col px-0 mx-3 table-top-panel-items">
-                        <a href="{{route('certified')}}" class="text-decoration-none table-top-panel-items-link">Тамомлаганлар</a>
+                        <a href="{{route('profdevcertified')}}" class="text-decoration-none table-top-panel-items-link">Тамомлаганлар</a>
                     </li>
-                   {{-- <li class="col px-0 mx-3 table-top-panel-items">
+                    {{--<li class="col px-0 mx-3 table-top-panel-items">
                         <a href="{{route('ticket.index')}}" class="text-decoration-none table-top-panel-items-link">Ticket</a>
                     </li>--}}
                 </ul>

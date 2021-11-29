@@ -29,3 +29,6 @@ Route::get('regName/{id}', 'api\RegController@regName');
 
 Route::post('ministry1','api\LicApiController@licence');
 Route::post('ministry2','api\LicApiController@licence381');
+
+//Certified Students
+Route::get('certifiedstudents','api\CertifiedStudentController@index');
