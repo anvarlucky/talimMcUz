@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+
 Route::group(['namespace' => 'client'], function(){
     Route::get('student/{id}', 'StudentController@show')->name('student');
 });
@@ -17,6 +18,8 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::group(['namespace' => 'client'],function(){
         Route::resource('ticket','TicketController');
         Route::get('/', 'StudentController@index');
+        Route::get('/profDev','StudentController@profdev')->name('profdev');
+        Route::get('/profDevcertified','StudentController@profdevcertified')->name('profdevcertified');
         Route::resource('students', 'StudentController');
         Route::get('studentsCertified', 'StudentController@indexCertified')->name('certified');
         Route::get('certificate/{id}','StudentController@certificate')->name('certificate');
@@ -38,6 +41,11 @@ Route::group(['middleware' => ['web','auth']], function () {
         Route::resource('reg', 'RegController');
         Route::resource('dis', 'DisController');
     });
+
+    Route::group(['namespace' => 'Director', 'prefix' => 'director'],function (){
+        Route::resource('cols', 'CollegeController');
+    });
+
 });
 
 

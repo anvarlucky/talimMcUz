@@ -47,7 +47,7 @@ class Student extends Model
 
     public static function getAll()
     {
-        return self::select('*')->where('status', 1)->get();
+        return self::select('*')->where('status', 1)->simplePaginate(1);
     }
 
     public static function getAllCertified()

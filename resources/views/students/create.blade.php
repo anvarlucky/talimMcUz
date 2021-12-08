@@ -2,7 +2,8 @@
 @section('content')
 <div class="panel-top">
     <div class="panel-top-fixed d-flex align-items-center justify-content-between py-2 px-5">
-        <a href="/"><p class="darkblue-color font-weight-bold text-nowrap mb-0">Қисқа муддатли ўқув курслари</p></a>
+        <a href="/"><p class="darkblue-color font-weight-bold text-nowrap mb-0 mr-1">Қисқа муддатли ўқув курслари </p></a>|
+        <a href="{{route('profdev')}}" class="darkblue-color font-weight-bold text-nowrap mb-0 ml-1"> Малака ошириш ўқув курслари</a>
 
         <div class="panel-top-items-box">
 
@@ -29,7 +30,7 @@
     <div class="container-fluid p-5">
         <div class="col-md-12 px-0 table-box">
             <div class="table-top-panel border-bottom d-flex align-items-center justify-content-between px-5 pt-5 pb-4">
-                <p class="account-title mb-2">Қисқа муддатли ўқув курсларида иштирок этаётган тингловчи ҳақида
+                <p class="account-title mb-2">Ўқув курсларида иштирок этаётган тингловчи ҳақида
                     маълумот</p>
             </div>
 
@@ -58,11 +59,19 @@
                                 {{Form::text('address',$student->address??null, ['class' => 'form-control', 'id' => 'address'])}}
                             </div>
                             <div class="form-group">
+                                <label for="status">Ўқув курс тури:</label>
+                                {{Form::select('status_course', [''=>'Танланг','1' => 'Қисқа муддатли', '2' => 'Малака ошириш'], $student->status_course??null,['class' => 'form-control','id' => 'status'])}}
+                            </div>
+                            <div class="form-group">
                                 <label for="curse">Ўқув курси номи:</label>
                                 {{Form::select('course_id', [__(' ')]+Arr::pluck($courses,'name','id'),$student->course_id??null, ['class' => 'form-control', 'id'=>'curse'])}}
                             </div>
                         </div>
                         <div class="col-md-5 ml-4">
+                            <div class="form-group">
+                                <label for="Surname">ЖШШИР</label>
+                                {{Form::text('pnfl', $student->pnfl??null, ['class' => 'form-control', 'id' => 'pnfl'])}}
+                            </div>
                             <div class="form-group">
                                 <label for="number-one">Қабул қилингалиги тўғрисидаги бўйруқ рақами:</label>
                                 {{Form::text('entering_number',$student->entering_number??null, ['class' => 'form-control', 'id' => 'number-one'])}}

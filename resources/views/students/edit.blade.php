@@ -8,7 +8,7 @@
 <div class="container-fluid p-5">
     <div class="col-md-12 px-0 table-box">
         <div class="table-top-panel border-bottom d-flex align-items-center justify-content-between px-5 pt-5 pb-4">
-            <p class="account-title mb-2">Қисқа муддатли ўқув курсларида иштирок этаётган тингловчи ҳақида маълумот</p>
+            <p class="account-title mb-2">Ўқув курсларида иштирок этаётган тингловчи ҳақида маълумот</p>
         </div>
 
         <div class="edit-container form-blue min-vh-75 d-flex justify-content-center py-5">
@@ -38,6 +38,10 @@
                         <div class="form-group">
                             <label for="curse">Ўқув курси номи:</label>
                             {{Form::select('course_id', [__(' ')]+Arr::pluck($courses,'name','id'),$student->course_id??null, ['class' => 'form-control', 'id'=>'curse','readonly'])}}
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Ўқув курс тури:</label>
+                            {{Form::select('status_course', [''=>'Танланг','1' => 'Қисқа муддатли', '2' => 'Малака ошириш'], $student->status_course??null,['class' => 'form-control','id' => 'status','readonly'])}}
                         </div>
                     </div>
                     <div class="col-md-5 ml-4">

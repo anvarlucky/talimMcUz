@@ -54,7 +54,7 @@ class LoginController extends Controller
 
             elseif($user->role == 'Direktor')
             {
-                return redirect()->to('/admin/colleges');
+                return redirect()->to('/director/cols');
             }
 
             elseif($user->role == 'Hodim')

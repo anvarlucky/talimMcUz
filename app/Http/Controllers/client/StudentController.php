@@ -19,13 +19,6 @@ use Illuminate\Support\Facades\Storage;
 
 class StudentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-
     public function index()
     {
         if(Auth::user()) {
@@ -40,14 +33,13 @@ class StudentController extends Controller
             }
             $college_auth = (College::where(['user_id' => $user_id])->get());
             foreach ($college_auth as $colAuth) {
-                    $colAuth = $colAuth->id;
+                $colAuth = $colAuth->id;
             }
 
-                $students = Student::select('*')->where(['college_id' => $colAuth, 'status' => 1])->paginate(10);
-            //dd($students);
-                return view('students.index', [
-                    'students' => $students
-                ]);
+            $students = Student::select('*')->where(['college_id' => $colAuth,'status_course' => 1, 'status' => 1])->latest()->paginate(10);
+            return view('students.index', [
+                'students' => $students
+            ]);
         }
     }
 
@@ -67,18 +59,59 @@ class StudentController extends Controller
             foreach ($college_auth as $colAuth) {
                 $colAuth = $colAuth->id;
             }
-            $students = Student::select('*')->where(['college_id' => $colAuth, 'status' => 2])->paginate(10);
+            $students = Student::select('*')->where(['college_id' => $colAuth,'status_course' => 1, 'status' => 2])->latest()->paginate(10);
             return view('students.indexCertified', [
                 'students' => $students
             ]);
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function profdev(){
+        if(Auth::user()) {
+            $user_id = Auth::user()->id;
+            if($user_id == 1)
+            {
+                $colAuth =1;
+            }
+            if(Auth::user()->role == 'Admin')
+            {
+                return redirect('/admin');
+            }
+            $college_auth = (College::where(['user_id' => $user_id])->get());
+            foreach ($college_auth as $colAuth) {
+                $colAuth = $colAuth->id;
+            }
+
+            $students = Student::select('*')->where(['college_id' => $colAuth, 'status_course' => 2, 'status' => 1])->latest()->paginate(10);
+            return view('students.profdev', [
+                'students' => $students
+            ]);
+        }
+    }
+
+    public function profdevcertified(){
+        if(Auth::user()) {
+            $user_id = Auth::user()->id;
+            if($user_id == 1)
+            {
+                $colAuth =1;
+            }
+            if(Auth::user()->role == 'Admin')
+            {
+                return redirect('/admin');
+            }
+            $college_auth = (College::where(['user_id' => $user_id])->get());
+            foreach ($college_auth as $colAuth) {
+                $colAuth = $colAuth->id;
+            }
+
+            $students = Student::select('*')->where(['college_id' => $colAuth, 'status_course' => 2, 'status' => 2])->latest()->paginate(10);
+            return view('students.profdevCertified', [
+                'students' => $students
+            ]);
+        }
+    }
+
     public function create()
     {
         $colleges = College::getAll();
@@ -90,12 +123,6 @@ class StudentController extends Controller
             ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StudentRequest $request)
     {
 
@@ -122,12 +149,6 @@ class StudentController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function search(Request $request)
     {
         $search = $request->post('search');
@@ -160,12 +181,6 @@ class StudentController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $student = Student::getOne($id);
@@ -182,13 +197,6 @@ class StudentController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $requestAll = $request->except('_token');
@@ -201,7 +209,7 @@ class StudentController extends Controller
         $request->validate([
             'certificate_photo'=>'required',
             'status'=>'required',
-            'finishing_number'=>'required|unique:students,finishing_number',
+            'finishing_number'=>'required',
             'finishing_data'=>'required',
             'certificate_number'=>'required|unique:students,certificate_number',
             'certificate_date'=>'required',
@@ -237,12 +245,6 @@ class StudentController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
