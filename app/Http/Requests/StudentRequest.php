@@ -28,9 +28,9 @@ class StudentRequest extends FormRequest
             's_name' => 'required|min:3|max:100',
             'l_name' => 'required|min:3|max:100',
             'entering_number' => 'required|sometimes|min:3|max:20',
-            'photo' => 'max:5120',
-            'order_photo' => 'max:5120',
-            'pnfl' => 'required|min:14|max:14'
+            'photo' => 'required|max:1024',
+            'order_photo' => 'required|max:1024',
+            'pnfl' => 'required|min:14|max:14|unique:students,pnfl'
         ];
     }
 }

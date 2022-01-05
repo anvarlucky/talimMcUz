@@ -66,6 +66,29 @@ class StudentController extends Controller
         }
     }
 
+    public function indexExit()
+    {
+        if(Auth::user()) {
+            $user_id = Auth::user()->id;
+            if($user_id == 1)
+            {
+                $colAuth =1;
+            }
+            if(Auth::user()->role == 'Admin')
+            {
+                return redirect('/admin');
+            }
+            $college_auth = (College::where(['user_id' => $user_id])->get());
+            foreach ($college_auth as $colAuth) {
+                $colAuth = $colAuth->id;
+            }
+            $students = Student::select('*')->where(['college_id' => $colAuth,'status_course' => 1, 'status' => 3])->latest()->paginate(10);
+            return view('students.indexExit', [
+                'students' => $students
+            ]);
+        }
+    }
+
     public function profdev(){
         if(Auth::user()) {
             $user_id = Auth::user()->id;
@@ -107,6 +130,29 @@ class StudentController extends Controller
 
             $students = Student::select('*')->where(['college_id' => $colAuth, 'status_course' => 2, 'status' => 2])->latest()->paginate(10);
             return view('students.profdevCertified', [
+                'students' => $students
+            ]);
+        }
+    }
+
+    public function profdevexit(){
+        if(Auth::user()) {
+            $user_id = Auth::user()->id;
+            if($user_id == 1)
+            {
+                $colAuth =1;
+            }
+            if(Auth::user()->role == 'Admin')
+            {
+                return redirect('/admin');
+            }
+            $college_auth = (College::where(['user_id' => $user_id])->get());
+            foreach ($college_auth as $colAuth) {
+                $colAuth = $colAuth->id;
+            }
+
+            $students = Student::select('*')->where(['college_id' => $colAuth, 'status_course' => 2, 'status' => 3])->latest()->paginate(10);
+            return view('students.profdevexit', [
                 'students' => $students
             ]);
         }

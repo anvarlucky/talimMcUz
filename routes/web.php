@@ -20,8 +20,10 @@ Route::group(['middleware' => ['web','auth']], function () {
         Route::get('/', 'StudentController@index');
         Route::get('/profDev','StudentController@profdev')->name('profdev');
         Route::get('/profDevcertified','StudentController@profdevcertified')->name('profdevcertified');
+        Route::get('/profDevexit','StudentController@profdevexit')->name('profdevexit');
         Route::resource('students', 'StudentController');
         Route::get('studentsCertified', 'StudentController@indexCertified')->name('certified');
+        Route::get('studentsExit', 'StudentController@indexExit')->name('studentexit');
         Route::get('certificate/{id}','StudentController@certificate')->name('certificate');
         Route::get('order/{id}','StudentController@order')->name('order');
         Route::post('students.search', 'StudentController@search')->name('students.search');

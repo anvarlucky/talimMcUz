@@ -28,6 +28,9 @@
                     <li class="col px-0 mx-3 table-top-panel-items {{route('certified') ? 'active' : ''}}">
                         <a href="{{route('profdevcertified')}}" class="text-decoration-none table-top-panel-items-link">Тамомлаганлар</a>
                     </li>
+                    <li class="col px-0 mx-3 table-top-panel-items">
+                        <a href="{{route('profdevexit')}}" class="text-decoration-none table-top-panel-items-link">Четлатиганлар</a>
+                    </li>
                 </ul>
             </div>
 
