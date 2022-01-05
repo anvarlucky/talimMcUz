@@ -7,7 +7,7 @@
     @endif
     <div class="container-fluid p-5">
         <div class="d-flex justify-content-between align-items-center">
-            <p class="title-list">Қисқа муддатли ўқув курсларини тамомлаган тингловчилар рўйхати</p>
+            <p class="title-list">Лойиҳалаш ва қурилиш соҳасидаги мутахассислар малакасини ошириш курсларини тамомлаган тингловчилар рўйхати</p>
 
             <form action="{{route('students.search')}}" method="post" class="input-group  search-input col-4 mb-3">
                 @csrf
@@ -23,13 +23,13 @@
             <div class="table-top-panel d-flex align-items-center justify-content-between px-2 py-3">
                 <ul class="d-flex">
                     <li class="col px-0 mx-3 table-top-panel-items {{--active--}}">
-                        <a href="{{route('students.index')}}" class="text-decoration-none table-top-panel-items-link">Ўқиётганлар</a>
-                    </li>
-                    <li class="col px-0 mx-3 table-top-panel-items {{route('certified') ? 'active' : ''}}">
-                        <a href="{{route('certified')}}" class="text-decoration-none table-top-panel-items-link">Тамомлаганлар</a>
+                        <a href="{{route('profdev')}}" class="text-decoration-none table-top-panel-items-link">Ўқиётганлар</a>
                     </li>
                     <li class="col px-0 mx-3 table-top-panel-items">
-                        <a href="{{route('studentexit')}}" class="text-decoration-none table-top-panel-items-link">Четлатилганлар</a>
+                        <a href="{{route('profdevcertified')}}" class="text-decoration-none table-top-panel-items-link">Тамомлаганлар</a>
+                    </li>
+                    <li class="col px-0 mx-3 table-top-panel-items {{route('profdevexit') ? 'active' : ''}}">
+                        <a href="{{route('profdevexit')}}" class="text-decoration-none table-top-panel-items-link">Четлатиганлар</a>
                     </li>
                 </ul>
             </div>
@@ -41,15 +41,14 @@
                     <tr>
                         <th class="lightblue-color w-2" scope="col">#</th>
                         <th class="darkblue-color text-center text-nowrap">Ф.И.Ш</th>
-                        <th class="darkblue-color text-center text-nowrap">ЖШШИР</th>
                         <th class="darkblue-color text-center text-nowrap">Вилоят</th>
                         <th class="darkblue-color text-center text-nowrap">Туман/ Шахар</th>
-                        <th class="darkblue-color text-center text-nowrap">Сертификат рақами</th>
-                        <th class="darkblue-color text-center text-nowrap">Сертификат олинган сана</th>
+                        <th class="darkblue-color text-center text-nowrap">Четлатилганлик рақами</th>
+                        <th class="darkblue-color text-center text-nowrap">Четлатилган сана</th>
                         <th class="darkblue-color text-center text-nowrap">Таълим муассаси номи</th>
                         <th class="darkblue-color text-center text-nowrap">Қабул қилинганлиги бўйруқ рақами ва санаси
                         </th>
-                        <th class="darkblue-color text-center text-nowrap">Тамомланганлиги тўғрисидаги бўйруқ ва
+                        <th class="darkblue-color text-center text-nowrap">Четлатилганлиги тўғрисидаги бўйруқ ва
                             санаси
                         </th>
                         <th class="darkblue-color text-center text-nowrap">Статус</th>
@@ -60,7 +59,6 @@
                         <tr>
                             <th class="lightblue-color w-2 align-middle" scope="row">{{ ($students ->currentpage()-1) * $students ->perpage() + $loop->index + 1 }}</th>
                             <td class="darkblue-color text-center text-nowrap align-middle"><a href="{{route('student',$student->id)}}">{{$student->s_name}} {{$student->f_name}} {{$student->l_name}}</a></td>
-                            <td class="darkblue-color text-center text-nowrap align-middle">{{$student->pnfl}}</td>
                             <td class="darkblue-color text-center text-nowrap align-middle">{{$student->college->district->region->name}}</td>
                             <td class="darkblue-color text-center text-nowrap align-middle">{{$student->address}}</td>
                             @if($student->certificate_number != null)
@@ -73,7 +71,7 @@
                             </td>
                             <td class="darkblue-color text-center text-nowrap align-middle"><b><a href="{{route('order',$student->id)}}">{{$student->entering_number}} {{\Carbon\Carbon::parse($student->entering_date)->format('d-m-Y')}}</a></b></td>
                             <td class="darkblue-color text-center text-nowrap align-middle"><b>{{$student->finishing_number}}</b><br/>{{\Carbon\Carbon::parse($student->finishing_date)->format('d-m-Y')}}</td>
-                            <td class="darkblue-color text-center text-nowrap align-middle">{{"Битирган"}}</td>
+                            <td class="darkblue-color text-center text-nowrap align-middle">{{"Четлатилган"}}</td>
                         </tr>
                     @endforeach
                     </tbody>

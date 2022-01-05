@@ -16,9 +16,10 @@ class CertifiedStudentController extends Controller
         ];
     }
 
-    public function index()
+    public function index($pnfl=null)
     {
-        $students = Student::select('id','f_name','s_name','l_name','address','certificate_number','pnfl')->where('status',2)->get();
+        $students = Student::select('id','f_name','s_name','l_name','address','certificate_number','pnfl','status')->where('pnfl',$pnfl)->where('status',2)
+            ->get();
         return response()->json([
             'success' => true,
             'lang' => app()->getLocale(),

@@ -98,32 +98,32 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="end-number" class="text-nowrap">Тамомланганлиги тўғрисидаги бўйруқ рақами:</label>
+                            <label for="end-number" class="text-nowrap">Тамомланганлиги тўғрисидаги бўйруқ рақами/Четлатилганлик тўғрисидаги бўйруқ рақами:</label>
                             {{Form::text('finishing_number', $student->finishing_number??null, ['class' => 'form-control', 'id' => 'end-number'])}}
                         </div>
 
                         <div class="form-group">
-                            <label for="sertificat-number" class="text-nowrap">Сертификат рақами:</label>
+                            <label for="sertificat-number" class="text-nowrap">Сертификат рақами/Четлатилганлик рақами:</label>
                             {{Form::text('certificate_number', $student->certificate_number??null, ['class' => 'form-control', 'id' => 'sertificat-number'])}}
                         </div>
 
                     </div>
                     <div class="col-md-5 ml-4">
                         <div class="form-group w-50">
-                            <label for="end-curse-date">Ўқув курси тугаган сана:</label>
+                            <label for="end-curse-date">Ўқув курси тугаган сана/Четлатилганлик санаси:</label>
                             {{Form::date('finishing_data', $student->finishing_data??null, ['class' => 'form-control', 'id' => 'end-curse-date'])}}
                         </div>
 
 
 
                         <div class="form-group w-50">
-                            <label for="start-curse-date">Сертификат олинган сана:</label>
+                            <label for="start-curse-date">Сертификат олинган сана/Четлатилганлик санаси:</label>
                             {{Form::date('certificate_date', $student->certificate_date??null, ['class' => 'form-control', 'id' => 'start-curse-date'])}}
                         </div>
 
                         <div class="form-group d-flex align-items-end justify-content-between">
                             <div class="file-path-wrapper col-md-8 pl-md-0">
-                                <label for="file-2" class="text-nowrap">Сертификатни юкланг (jpg/jpeg/pdf):</label>
+                                <label for="file-2" class="text-nowrap">Сертификатни юкланг (jpg/jpeg/pdf)/Четлатилганлик тўғрисидаги буйруқ:</label>
                                 <label for="file-2" id="file-span-2"
                                        class="file-path span-input-file form-control validate w-100 mb-0"
                                        type="text" ></label>

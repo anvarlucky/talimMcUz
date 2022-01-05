@@ -22,6 +22,9 @@
                     <li class="col px-0 mx-3 table-top-panel-items">
                         <a href="{{route('profdevcertified')}}" class="text-decoration-none table-top-panel-items-link">Тамомлаганлар</a>
                     </li>
+                    <li class="col px-0 mx-3 table-top-panel-items">
+                        <a href="{{route('profdevexit')}}" class="text-decoration-none table-top-panel-items-link">Четлатиганлар</a>
+                    </li>
                     {{--<li class="col px-0 mx-3 table-top-panel-items">
                         <a href="{{route('ticket.index')}}" class="text-decoration-none table-top-panel-items-link">Ticket</a>
                     </li>--}}
@@ -87,8 +90,8 @@
 
         </div>
         <br/>
-        {{--
+
                     {{$students->render()}}
-        --}}
+
     </div>
 @endsection

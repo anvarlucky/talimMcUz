@@ -32,3 +32,4 @@ Route::post('ministry2','api\LicApiController@licence381');
 
 //Certified Students
 Route::get('certifiedstudents','api\CertifiedStudentController@index');
+Route::get('certifiedstudents/{inn?}','api\CertifiedStudentController@index')->name('certifid');
