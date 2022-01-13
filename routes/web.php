@@ -38,6 +38,7 @@ Route::group(['middleware' => ['web','auth']], function () {
         //
         Route::resource('colleges', 'CollegeController');
         Route::resource('courses', 'CourseController');
+        Route::get('malaka', 'CourseController@indexMalaka')->name('malaka');
         Route::resource('sts', 'StudentController');
         Route::resource('users', 'UserController');
         Route::resource('reg', 'RegController');

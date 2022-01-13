@@ -12,7 +12,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="account-photo">
-                                    <img src="/storage/validation/photo/{{$student->photo}}" class="w-100" alt="png">
+                                    <img src="/storage/validation/photo/{{$student->photo}}" class="w-100" alt="png" width="200px" height="400px">
                                 </div>
                             </div>
                             <div class="col-md-7">

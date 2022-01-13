@@ -18,6 +18,7 @@ class CreateStudentsTable extends Migration
             $table->string('f_name');
             $table->string('s_name');
             $table->string('l_name')->nullable();
+            $table->bigInteger('pnfl')->nullable()->default(null);
             $table->date('birthday')->nullable();
             $table->text('address')->nullable();
             $table->string('entering_number',100)->nullable();

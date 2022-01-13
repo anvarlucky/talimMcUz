@@ -18,6 +18,15 @@ class CourseController extends Controller
             ]);
     }
 
+    public function indexMalaka()
+    {
+        $courses = Course::getMalaka();
+        return view('admin.courses.indexMalaka',
+            [
+                'courses' => $courses
+            ]);
+    }
+
     public static function create()
     {
         return view('admin.courses.create');

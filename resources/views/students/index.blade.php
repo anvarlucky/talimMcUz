@@ -92,8 +92,6 @@
 
         </div>
         <br/>
-        {{--
-                    {{$students->render()}}
-        --}}
+        {{$students->render()}}
     </div>
 @endsection

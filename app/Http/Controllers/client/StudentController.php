@@ -161,7 +161,7 @@ class StudentController extends Controller
     public function create()
     {
         $colleges = College::getAll();
-        $courses = Course::getAll();
+        $courses = Course::all();
         return view('students.create',
             [
              'colleges' => $colleges,

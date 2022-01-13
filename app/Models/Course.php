@@ -11,7 +11,11 @@ class Course extends Model
 
     public static function getAll()
     {
-        return self::select('*')->get();
+        return self::select('*')->where('type',null)->get();
+    }
+
+    public static function getMalaka(){
+        return self::select('*')->where('type',2)->get();
     }
 
     public static function getOne($id)

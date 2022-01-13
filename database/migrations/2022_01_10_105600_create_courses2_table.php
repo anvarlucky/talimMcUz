@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStudents123Table extends Migration
+class CreateCourses2Table extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateStudents123Table extends Migration
      */
     public function up()
     {
-        Schema::table('students', function (Blueprint $table) {
-            $table->bigInteger('pnfl')->nullable()->default(null);
+        Schema::table('courses', function (Blueprint $table) {
+            $table->integer('type')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class CreateStudents123Table extends Migration
      */
     public function down()
     {
-        Schema::table('students', function (Blueprint $table) {
-            //
+        Schema::table('courses', function (Blueprint $table) {
+            $table->dropIfExists();
         });
     }
 }

@@ -9,14 +9,10 @@
                         <a href="{{route('malaka')}}" class="text-decoration-none table-top-panel-items-link">Малака ошириш Ўқув курслари рўйхати</a>
                     </li>
                 </ul>
-
-
                 <a href="{{route('courses.create')}}" type="button" class="btn adding-button">
                     Янги кушиш <i class="fa fa-plus ml-2 mt-1"></i>
                 </a>
             </div>
-
-
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
@@ -34,9 +30,6 @@
                                 <a href="{{route('courses.edit', $course->id)}}" class="btn btn-edit mr-3" type="button">
                                     <img src="{{asset('/assets/diyor/images/icon-create.svg')}}" alt="svg">
                                 </a>
-{{--                                <a href="#" class="btn btn-delete focus-none" type="button">
-                                    <img src="{{asset('/assets/diyor/images/icon-delete.svg')}}" alt="svg">
-                                </a>--}}
                                 <form action="{{route('courses.destroy', $course->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
@@ -48,7 +41,6 @@
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
 @endsection
