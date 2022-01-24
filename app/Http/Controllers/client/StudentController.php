@@ -158,10 +158,20 @@ class StudentController extends Controller
         }
     }
 
+    public function profdevcreate(){
+        $colleges = College::getAll();
+        $courses = Course::where('type',2)->get();
+        return view('students.profdevcreate',
+            [
+                'colleges' => $colleges,
+                'courses' => $courses
+            ]);
+    }
+
     public function create()
     {
         $colleges = College::getAll();
-        $courses = Course::all();
+        $courses = Course::getAll();
         return view('students.create',
             [
              'colleges' => $colleges,
@@ -237,6 +247,22 @@ class StudentController extends Controller
         $courses = Course::getAll();
         $colleges = College::getAll();
         return view('students.edit',[
+            'student' => $student,
+            'courses' => $courses,
+            'colleges' => $colleges
+        ]);
+    }
+
+    public function profdevedit($id)
+    {
+        $student = Student::getOne($id);
+        if($student->status==2)
+        {
+            return redirect()->route('certified');
+        }
+        $courses = Course::where('type',2)->get();
+        $colleges = College::getAll();
+        return view('students.profdevedit',[
             'student' => $student,
             'courses' => $courses,
             'colleges' => $colleges

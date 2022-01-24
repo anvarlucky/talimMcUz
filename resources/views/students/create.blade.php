@@ -60,7 +60,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="status">Ўқув курс тури:</label>
-                                {{Form::select('status_course', [''=>'Танланг','1' => 'Қисқа муддатли', '2' => 'Малака ошириш'], $student->status_course??null,['class' => 'form-control','id' => 'status'])}}
+                                {{Form::select('status_course', [''=>'Танланг','1' => 'Қисқа муддатли', '2' => 'Малака ошириш'], $student->status_course??null,['class' => 'form-control','id' => 'status','readonly'])}}
                             </div>
                             <div class="form-group">
                                 <label for="curse">Ўқув курси номи:</label>

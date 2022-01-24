@@ -31,7 +31,7 @@
                 </ul>
 
 
-                <a href="{{route('students.create')}}" class="btn adding-button">
+                <a href="{{route('profdevcreate')}}" class="btn adding-button">
                     Янги кушиш <i class="fa fa-plus ml-2 mt-1"></i>
                 </a>
             </div>
@@ -80,7 +80,7 @@
                                 @else{{"Четлатилган"}}
                                 @endif</td>
                             <td class="darkblue-color d-flex align-items-center justify-content-end">
-                                <a href="{{route('students.edit', $student->id)}}" class="btn btn-outline-primary mr-3 text-nowrap">Сертификатни юклаш</a>
+                                <a href="{{route('profdevedit', $student->id)}}" class="btn btn-outline-primary mr-3 text-nowrap">Сертификатни юклаш</a>
                             </td>
                         </tr>
                     @endforeach
