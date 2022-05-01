@@ -27,7 +27,7 @@ class StudentRequest extends FormRequest
             'f_name' => 'required|min:3|max:100',
             's_name' => 'required|min:3|max:100',
             'l_name' => 'required|min:3|max:100',
-            'entering_number' => 'required|sometimes|min:3|max:20',
+            'entering_number' => 'required|sometimes|min:1|max:20',
             'photo' => 'required|max:1024',
             'order_photo' => 'required|max:1024',
             'pnfl' => 'required|min:14|max:14|unique:students,pnfl'
